@@ -13,27 +13,22 @@ The application's icon is based on icons from the `Moka <http://snwh.org/moka/>`
 Sam Hewitt, and is licensed under the
 `CC BY-SA <http://creativecommons.org/licenses/by-sa/4.0/legalcode>`_ license.
 
+The sound files, as well as their licenses and authors are available in the
+`ambientsounds <https://github.com/Muges/ambientsounds>`_ repository.
+
 Requirements
 ------------
 
- - Python 2
- - PyGObject >= 3.16
- - `pygame <http://www.pygame.org/>`_
- - `mutagen <https://bitbucket.org/lazka/mutagen>`_
-
-Sounds
-------
-
-The sound files, as well as their licenses and authors are available in the
-`ambientsounds <https://github.com/Muges/ambientsounds>`_ repository. You should put them in one of
-the following directories :
-
- - ``~/.config/ambientsounds/sounds``
- - ``/usr/share/ambientsounds/sounds``
- - ``./sounds``
+- Python 2
+- PyGObject >= 3.16
+- `pygame <http://www.pygame.org/>`_
+- `mutagen <https://bitbucket.org/lazka/mutagen>`_
 
 Usage
 -----
 
- - Left-click on the tray icon to mute or unmute
- - Right-click on the tray icon to show the window and change the volume of the sounds
+- Download the last ``ambientsounds-gtk-full`` package on the `releases page
+  <https://github.com/Muges/ambientsounds-gtk/releases>`_, extract it and launch
+  ``./ambientsounds-gtk``.
+- Left-click on the tray icon to mute or unmute
+- Right-click on the tray icon to show the window and change the volume of the sounds
