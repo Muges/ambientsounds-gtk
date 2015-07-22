@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=AmbientSounds
+Comment=Ambient sound player inspired by Noizio, A Soft Murmur, etc...
+Exec=ambientsounds-gtk
+Terminal=false
+Type=Application
+Icon=ambientsounds-gtk
+Categories=GTK;AudioVideo;Player;
+StartupNotify=true
