@@ -36,17 +36,6 @@ Gtk.IconTheme.get_default().append_search_path(ICON_PATH)
 
 Gtk.Window.set_default_icon_name("ambientsounds-gtk")
 
-def main():
-    """
-    Start the interface
-    """
-    Sound.load()
-    Preset.load()
-
-    StatusIcon()
-
-    Gtk.main()
-
 class StatusIcon(Gtk.StatusIcon):
     """
     Object handling the tray icon
@@ -77,7 +66,7 @@ class StatusIcon(Gtk.StatusIcon):
         """
         Method called when the user left-clicks on the icon, mute or unmute the sounds
         """
-        Sound.toggle_mute()
+        Sound.toggle_muted()
         self.set_icon()
 
     def on_menu(self, icon, button, activate_time):

@@ -145,16 +145,24 @@ class Sound(object):
             sound.set_volume()
 
     @staticmethod
-    def toggle_mute():
+    def set_muted(muted):
         """
         Mute or unmute without changing the volume value
         """
-        Sound.muted = not Sound.muted
-        for sound in Sound.sounds.values():
-            sound.set_volume()
+        if Sound.muted != muted:
+            Sound.muted = muted
+            for sound in Sound.sounds.values():
+                sound.set_volume()
 
     @staticmethod
-    def load():
+    def toggle_muted():
+        """
+        Mute or unmute without changing the volume value
+        """
+        Sound.set_muted(not Sound.muted)
+
+    @staticmethod
+    def load(muted=True):
         """
         Load the sounds from the sound directories
         """
@@ -165,6 +173,8 @@ class Sound(object):
                         Sound(os.path.join(sound_dir, filename))
 
         pygame.mixer.set_num_channels(len(Sound.sounds))
+
+        Sound.set_muted(muted)
 
     @staticmethod
     def sorted():
@@ -238,7 +248,7 @@ class Preset(object):
         del Preset.presets[self.name]
 
     @staticmethod
-    def load():
+    def load(preset_name=None):
         """
         Load the presets from the presets directory
         """
@@ -248,7 +258,9 @@ class Preset(object):
                     preset = Preset(os.path.join(PRESETS_DIR, filename))
                     preset.read()
 
-        if Preset.current_preset != None:
+        if preset_name in Preset.presets:
+            Preset.presets[preset_name].apply()
+        elif Preset.current_preset != None:
             Preset.current_preset.apply()
 
     @staticmethod

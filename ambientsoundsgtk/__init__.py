@@ -27,7 +27,35 @@
 Ambient sounds player inspired by Noizio, A Soft Murmur, etc...
 """
 
-from .ui import main
+import argparse
+from gi.repository import Gtk
+
+
+from .ui import StatusIcon
+from .sounds import Sound, Preset
+
+def main():
+    """
+    Start the interface
+    """
+
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Ambient sound player inspired by Noizio, A ' +
+                                                 'Soft Murmur, etc...')
+
+    parser.add_argument('--muted', action='store_true', help='start AmbientSounds muted')
+    parser.add_argument('--preset', action='store', help='load the preset named PRESET')
+
+    args = parser.parse_args()
+
+    # Load the sounds and the presets
+    Sound.load(args.muted)
+    Preset.load(args.preset)
+
+    # Display the status icon
+    StatusIcon()
+
+    Gtk.main()
 
 if __name__ == "__main__":
     main()
